@@ -1,5 +1,3 @@
-const API_KEY = "Kn4oohzaRL-f2E5RrD-r"
-
 const query = `query GetIssues($milestone: [String]!) {
   group(fullPath: "CAD") {
     issues(milestoneTitle: $milestone, assigneeUsernames: "malishevis") {
