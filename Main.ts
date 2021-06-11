@@ -3,8 +3,8 @@ function onOpen() {
   const ui = SpreadsheetApp.getUi()
 
   ui.createMenu('Gitlab')
-    .addItem('Init sheet', 'initSheet')
-    .addItem('Import issues', 'importIssues')
+    .addItem('Настроить страницу', 'initSheet')
+    .addItem('Импортировать задачи', 'importIssues')
     .addToUi()
 }
 
