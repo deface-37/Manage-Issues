@@ -4,8 +4,26 @@ function onOpen() {
 
   ui.createMenu('Gitlab')
     .addItem('Настроить страницу', 'initSheet')
+    .addItem('Добавить новый спринт', 'createNewSheet')
     .addItem('Импортировать задачи', 'importIssues')
     .addToUi()
+}
+
+function createNewSheet() {
+  const sheet = SpreadsheetApp.getActiveSheet()
+  let sheetName = sheet.getName()
+
+  // Увеличиваем номер спринта на 1
+  sheetName = sheetName.replace(/\d+/, num => (Number(num) + 1).toString())
+
+  // Получаем текущий документ
+  const mySS = SpreadsheetApp.getActiveSpreadsheet()
+  // Создаем новую страницу
+  const newSheet = mySS.insertSheet(sheetName)
+  // Делаем её активной 
+  mySS.setActiveSheet(newSheet)
+  // Инициализируем страницу
+  initSheet()
 }
 
 function initSheet() {
